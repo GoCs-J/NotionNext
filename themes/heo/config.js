@@ -96,7 +96,7 @@ const CONFIG = {
       color_1: '#ffffff',
       title_2: 'Mathematica',
       img_2: '/images/heo/Mathematica.webp',
-      color_2: '#ffbca8'
+      color_2: '#ffffff'
     },
   ],
 
