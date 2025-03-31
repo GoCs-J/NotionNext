@@ -62,24 +62,24 @@ const CONFIG = {
       title_1: 'IntelliJ',
       img_1: '/images/heo/IntelliJ.webp',
       color_1: '#ffffff',
-      title_2: 'Rhino',
-      img_2: '/images/heo/20231ca53fa0b09a3ff1df89acd7515e9516173302.webp',
-      color_2: '#1f1f1f'
+      title_2: 'Marie',
+      img_2: '/images/heo/marie.webp',
+      color_2: '#ffffff'
     },
     {
       title_1: 'Monash',
       img_1: '/images/heo/Monash.webp',
       color_1: '#ffffff',
-      title_2: 'ypt',
+      title_2: 'YPT',
       img_2: '/images/heo/ypt.webp',
       color_2: '#ffffff'
     },
     {
-      title_1: 'ed',
+      title_1: 'ED',
       img_1: '/images/heo/ed.webp',
       color_1: '#ffffff',
-      title_2: 'Photoshop',
-      img_2: '/images/heo/2023e4058a91608ea41751c4f102b131f267075902.webp',
+      title_2: 'Logisim',
+      img_2: '/images/heo/logisim.webp',
       color_2: '#4082c3'
     },
     {
