@@ -4,12 +4,12 @@ const CONFIG = {
 
   HEO_HOME_BANNER_ENABLE: true,
 
-  HEO_SITE_CREATE_TIME: '2021-09-21', // 建站日期，用于计算网站运行的第几天
+  HEO_SITE_CREATE_TIME: '2025-04-01', // 建站日期，用于计算网站运行的第几天
 
   // 首页顶部通知条滚动内容，如不需要可以留空 []
   HEO_NOTICE_BAR: [
-    { title: '欢迎来到我的博客', url: 'https://blog.tangly1024.com' },
-    { title: '访问文档中心获取更多帮助', url: 'https://docs.tangly1024.com' }
+    { title: '欢迎来到我们的世界', url: '' },
+    { title: '网站仍处于开发阶段', url: '' }
   ],
 
   // 英雄区左右侧组件颠倒位置
@@ -122,7 +122,7 @@ const CONFIG = {
   HEO_POST_LIST_PREVIEW: false, // 读取文章预览
   HEO_POST_LIST_IMG_CROSSOVER: true, // 博客列表图片左右交错
 
-  HEO_ARTICLE_ADJACENT: true, // 显示上一篇下一篇文章推荐
+  HEO_ARTICLE_ADJACENT: false, // 显示上一篇下一篇文章推荐
   HEO_ARTICLE_COPYRIGHT: true, // 显示文章版权声明
   HEO_ARTICLE_RECOMMEND: true, // 文章关联推荐
 
