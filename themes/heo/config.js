@@ -8,8 +8,9 @@ const CONFIG = {
 
   // 首页顶部通知条滚动内容，如不需要可以留空 []
   HEO_NOTICE_BAR: [
-    { title: '欢迎来到我的博客', url: 'https://blog.tangly1024.com' },
-    { title: '访问文档中心获取更多帮助', url: 'https://docs.tangly1024.com' }
+    { title: '欢迎来到CS基地', url: '' },
+    { title: '网站处于建设阶段', url: '' },
+    { title: '私信 加入我们！', url: '' }
   ],
 
   // 英雄区左右侧组件颠倒位置
@@ -28,7 +29,7 @@ const CONFIG = {
   HEO_HERO_COVER_TITLE: '随便逛逛',
 
   // 英雄区显示三个置顶分类
-  HEO_HERO_CATEGORY_1: { title: '必看精选', url: '/tag/必看精选' },
+  HEO_HERO_CATEGORY_1: { title: 'ASM 精选', url: '/tag/ASM' },
   HEO_HERO_CATEGORY_2: { title: '热门文章', url: '/tag/热门文章' },
   HEO_HERO_CATEGORY_3: { title: '实用教程', url: '/tag/实用教程' },
 
@@ -51,10 +52,8 @@ const CONFIG = {
   // 个人资料底部按钮
   HEO_INFO_CARD_URL1: '/about',
   HEO_INFO_CARD_ICON1: 'fas fa-user',
-  HEO_INFO_CARD_URL2: 'https://github.com/tangly1024',
-  HEO_INFO_CARD_ICON2: 'fab fa-github',
-  HEO_INFO_CARD_URL3: 'https://www.tangly1024.com',
-  HEO_INFO_CARD_TEXT3: '了解更多',
+  HEO_INFO_CARD_URL2: 'https://www.tangly1024.com',
+  HEO_INFO_CARD_TEXT2: '了解更多',
 
   // 用户技能图标
   HEO_GROUP_ICONS: [
