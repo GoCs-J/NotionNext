@@ -67,9 +67,9 @@ const CONFIG = {
       color_2: '#ffffff'
     },
     {
-      title_1: 'Docker',
-      img_1: '/images/heo/20231108a540b2862d26f8850172e4ea58ed075102.webp',
-      color_1: '#57b6e6',
+      title_1: 'ed',
+      img_1: '/images/heo/ed.webp',
+      color_1: '#ffffff',
       title_2: 'Photoshop',
       img_2: '/images/heo/2023e4058a91608ea41751c4f102b131f267075902.webp',
       color_2: '#4082c3'
