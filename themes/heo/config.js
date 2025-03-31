@@ -64,7 +64,7 @@ const CONFIG = {
       color_1: '#ffffff',
       title_2: 'Marie',
       img_2: '/images/heo/marie.webp',
-      color_2: '#ffffff'
+      color_2: '#404040'
     },
     {
       title_1: 'PyCharm',
@@ -77,7 +77,7 @@ const CONFIG = {
     {
       title_1: 'Monash',
       img_1: '/images/heo/Monash.webp',
-      color_1: '#ffffff',
+      color_1: '#146da7',
       title_2: 'YPT',
       img_2: '/images/heo/ypt.webp',
       color_2: '#ffffff'
@@ -96,7 +96,7 @@ const CONFIG = {
       color_1: '#ffffff',
       title_2: 'Mathematica',
       img_2: '/images/heo/Mathematica.webp',
-      color_2: '#e9572b'
+      color_2: '#ffbca8'
     },
   ],
 
