@@ -67,6 +67,14 @@ const CONFIG = {
       color_2: '#ffffff'
     },
     {
+      title_1: 'PyCharm',
+      img_1: '/images/heo/PyCharm.webp',
+      color_1: '#ffffff',
+      title_2: 'Python',
+      img_2: '/images/heo/20235c0731cd4c0c95fc136a8db961fdf963071502.webp',
+      color_2: '#ffffff'
+    },
+    {
       title_1: 'Monash',
       img_1: '/images/heo/Monash.webp',
       color_1: '#ffffff',
@@ -80,22 +88,14 @@ const CONFIG = {
       color_1: '#ffffff',
       title_2: 'Logisim',
       img_2: '/images/heo/logisim.webp',
-      color_2: '#4082c3'
-    },
-    {
-      title_1: 'PyCharm',
-      img_1: '/images/heo/PyCharm.webp',
-      color_1: '#ffffff',
-      title_2: 'Python',
-      img_2: '/images/heo/20235c0731cd4c0c95fc136a8db961fdf963071502.webp',
       color_2: '#ffffff'
     },
     {
-      title_1: 'JS',
-      img_1: '/images/heo/2023786e7fc488f453d5fb2be760c96185c0075502.webp',
-      color_1: '#f7cb4f',
-      title_2: 'HTML',
-      img_2: '/images/heo/202372b4d760fd8a497d442140c295655426070302.webp',
+      title_1: 'VScode',
+      img_1: '/images/heo/VScode.webp',
+      color_1: '#ffffff',
+      title_2: 'Mathematica',
+      img_2: '/images/heo/Mathematica.webp',
       color_2: '#e9572b'
     },
   ],
