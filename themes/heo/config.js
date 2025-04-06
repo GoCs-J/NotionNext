@@ -23,7 +23,7 @@ const CONFIG = {
   HEO_HERO_TITLE_3: 'csgo.vercel.app',
   HEO_HERO_TITLE_4: '新版上线',
   HEO_HERO_TITLE_5: '全新网站，更好笔记',
-  HEO_HERO_TITLE_LINK: 'https://csgo.vercel.app',
+  HEO_HERO_TITLE_LINK: 'https://www.cs-go.me/',
   // 英雄区遮罩文字
   HEO_HERO_COVER_TITLE: '查看更多',
 
