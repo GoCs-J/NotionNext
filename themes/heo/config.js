@@ -92,6 +92,14 @@ const CONFIG = {
       img_2: '/images/heo/Mathematica.webp',
       color_2: '#ffffff'
     },
+    {
+      title_1: 'Wireshark',
+      img_1: '/images/heo/wireshark.webp',
+      color_1: '#ffffff',
+      title_2: 'Netspot',
+      img_2: '/images/heo/netspot.webp',
+      color_2: '#ffffff'
+    },
   ],
 
   HEO_SOCIAL_CARD: false, // 是否显示右侧，点击加入社群按钮
