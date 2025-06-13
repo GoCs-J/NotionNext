@@ -32,7 +32,7 @@ export const ArticleLock = props => {
         <div className='text-center space-y-3'>
             <div className='font-bold'>{locale.COMMON.ARTICLE_LOCK_TIPS}</div>
             <div className='flex mx-4'>
-                <input id="password" type='password'
+                <input id="password"
                     onKeyDown={(e) => {
                       if (e.key === 'Enter') {
                         submitPassword()
