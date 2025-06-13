@@ -36,7 +36,7 @@ const ArticleLock = props => {
           <div className='font-bold'>{locale.COMMON.ARTICLE_LOCK_TIPS}</div>
           <div className="flex mx-4">
             <input
-              id="password" type='password'
+              id="password"
               onKeyDown={(e) => {
                 if (e.key === 'Enter') {
                   submitPassword()
