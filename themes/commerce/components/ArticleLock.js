@@ -48,4 +48,5 @@ export const ArticleLock = props => {
       </div>
     </div>
   </div>
+
 }
