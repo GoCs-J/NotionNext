@@ -47,9 +47,6 @@ const LayoutBase = props => {
       id='theme-example'
       className={`${siteConfig('FONT_STYLE')} dark:text-gray-300  bg-white dark:bg-black scroll-smooth`}>
       <Style />
-
-      {/* 页头 */}
-      <Header {...props} />
       {/* 标题栏 */}
       <TitleBar {...props} />
 
@@ -93,10 +90,6 @@ const LayoutBase = props => {
           )}
         </div>
       </div>
-
-      {/* 页脚 */}
-      <Footer {...props} />
-
       {/* 回顶按钮 */}
       <div className='fixed right-4 bottom-4 z-10'>
         <div
