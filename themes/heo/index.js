@@ -22,7 +22,7 @@ import { loadWowJS } from '@/lib/plugins/wow'
 import { isBrowser } from '@/lib/utils'
 import { Transition } from '@headlessui/react'
 import Link from 'next/link'
-import { useRouter } from 'next/routerbl
+import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import BlogPostArchive from './components/BlogPostArchive'
 import BlogPostListPage from './components/BlogPostListPage'
