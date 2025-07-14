@@ -61,7 +61,7 @@ return (
               <Link
                 key={index}
                 href={`/tag/${encodeURIComponent(tag.name)}`}
-                className=`notion-${tag.color}_background dark:bg-gray-700 hover:bg-blue-500 dark:hover:bg-yellow-600 text-gray-800 dark:text-gray-200 hover:text-white px-2 py-0.5 rounded text-xs`>
+                className={`notion-${tag.color}_background dark:bg-gray-700 hover:bg-blue-500 dark:hover:bg-yellow-600 text-gray-800 dark:text-gray-200 hover:text-white px-2 py-0.5 rounded text-xs`}>
                 {tag.name}  
               </Link>
             ))}
