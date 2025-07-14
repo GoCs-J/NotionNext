@@ -1,187 +1,195 @@
-import Collapse from '@/components/Collapse'
 import { siteConfig } from '@/lib/config'
-import { useGlobal } from '@/lib/global'
-import Link from 'next/link'
+import { isBrowser } from '@/lib/utils'
+import throttle from 'lodash.throttle'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
-import { useMovieGlobal } from '..'
-import CONFIG from '../config'
-import { MenuItemCollapse } from './MenuItemCollapse'
-import { MenuItemDrop } from './MenuItemDrop'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import DarkModeButton from './DarkModeButton'
+import Logo from './Logo'
+import { MenuListTop } from './MenuListTop'
+import RandomPostButton from './RandomPostButton'
+import ReadingProgress from './ReadingProgress'
+import SearchButton from './SearchButton'
+import SlideOver from './SlideOver'
 
 /**
- * 网站顶部
+ * 页头：顶部导航
+ * @param {*} param0
  * @returns
  */
-export const Header = props => {
-  const { collapseRef, searchModal } = useMovieGlobal()
+const Header = props => {
+  const [fixedNav, setFixedNav] = useState(false)
+  const [textWhite, setTextWhite] = useState(false)
+  const [navBgWhite, setBgWhite] = useState(false)
+  const [activeIndex, setActiveIndex] = useState(0)
+
   const router = useRouter()
-  const { customNav, customMenu } = props
-  const { locale } = useGlobal()
-  const [isOpen, setIsOpen] = useState(false)
-  const [showSearch, setShowSearch] = useState(false)
+  const slideOverRef = useRef()
+
   const toggleMenuOpen = () => {
-    setIsOpen(!isOpen)
-  }
-  let links = [
-    {
-      id: 1,
-      icon: 'fa-solid fa-house',
-      name: locale.NAV.INDEX,
-      href: '/',
-      show: siteConfig('MOVIE_MENU_INDEX', null, CONFIG)
-    },
-    {
-      id: 2,
-      icon: 'fas fa-search',
-      name: locale.NAV.SEARCH,
-      href: '/search',
-      show: siteConfig('MOVIE_MENU_SEARCH', null, CONFIG)
-    },
-    {
-      id: 3,
-      icon: 'fas fa-archive',
-      name: locale.NAV.ARCHIVE,
-      href: '/archive',
-      show: siteConfig('MOVIE_MENU_ARCHIVE', null, CONFIG)
-    }
-    // { icon: 'fas fa-folder', name: locale.COMMON.CATEGORY, href: '/category', show: siteConfig('MENU_CATEGORY', null, CONFIG) },
-    // { icon: 'fas fa-tag', name: locale.COMMON.TAGS, href: '/tag', show: siteConfig('MENU_TAG', null, CONFIG) }
-  ]
-
-  if (customNav) {
-    links = links.concat(customNav)
+    slideOverRef?.current?.toggleSlideOvers()
   }
 
-  for (let i = 0; i < links.length; i++) {
-    if (links[i].id !== i) {
-      links[i].id = i
-    }
-  }
+  /**
+   * 根据滚动条，切换导航栏样式
+   */
+  const scrollTrigger = useCallback(
+    throttle(() => {
+      const scrollS = window.scrollY
+      // 导航栏设置 白色背景
+      if (scrollS <= 1) {
+        setFixedNav(false)
+        setBgWhite(false)
+        setTextWhite(false)
 
-  // 如果 开启自定义菜单，则覆盖Page生成的菜单
-  if (siteConfig('CUSTOM_MENU')) {
-    links = customMenu
-  }
-
-  // 展示搜索框
-  const toggleShowSearchInput = () => {
-    if (siteConfig('ALGOLIA_APP_ID')) {
-      searchModal.current.openSearch()
-    } else {
-      setShowSearch(!showSearch)
-    }
-  }
-
+        // 文章详情页特殊处理
+        if (document?.querySelector('#post-bg')) {
+          setFixedNav(true)
+          setTextWhite(true)
+        }
+      } else {
+        // 向下滚动后的导航样式
+        setFixedNav(true)
+        setTextWhite(false)
+        setBgWhite(true)
+      }
+    }, 100)
+  )
   useEffect(() => {
-    if (showSearch) {
-      setTimeout(() => {
-        document.getElementById('search').focus()
-      }, 100)
-    }
-  }, [showSearch])
+    scrollTrigger()
+  }, [router])
 
-  const onKeyUp = e => {
-    if (e.keyCode === 13) {
-      const search = document.getElementById('search').value
-      if (search) {
-        router.push({ pathname: '/search/' + search })
+  // 监听滚动
+  useEffect(() => {
+    window.addEventListener('scroll', scrollTrigger)
+    return () => {
+      window.removeEventListener('scroll', scrollTrigger)
+    }
+  }, [])
+
+  // 导航栏根据滚动轮播菜单内容
+  useEffect(() => {
+    let prevScrollY = 0
+    let ticking = false
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY
+          if (currentScrollY > prevScrollY) {
+            setActiveIndex(1) // 向下滚动时设置activeIndex为1
+          } else {
+            setActiveIndex(0) // 向上滚动时设置activeIndex为0
+          }
+          prevScrollY = currentScrollY
+          ticking = false
+        })
+        ticking = true
       }
     }
-  }
 
-  const handleSearch = () => {
-    const search = document.getElementById('search').value
-    if (search) {
-      router.push({ pathname: '/search/' + search })
+    if (isBrowser) {
+      window.addEventListener('scroll', handleScroll)
     }
-  }
+
+    return () => {
+      if (isBrowser) {
+        window.removeEventListener('scroll', handleScroll)
+      }
+    }
+  }, [])
 
   return (
     <>
-      <header className='w-full px-8 h-20 z-20 flex lg:flex-row md:flex-col justify-between items-center'>
-        {/* 左侧Logo */}
-        <Link
-          href='/'
-          className='logo whitespace-nowrap text-2xl md:text-3xl font-bold text-gray-dark no-underline flex items-center'>
-          {siteConfig('TITLE')}
-        </Link>
+      <style jsx>{`
+        @keyframes fade-in-down {
+          0% {
+            opacity: 0.5;
+            transform: translateY(-30%);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
 
-        <div className='md:w-auto text-center flex space-x-2'>
-          {/* 右侧菜单 */}
-          <>
-            <nav
-              id='nav-mobile'
-              className='leading-8 justify-center w-full hidden md:flex'>
-              {links?.map(
-                (link, index) =>
-                  link && link.show && <MenuItemDrop key={index} link={link} />
-              )}
-            </nav>
+        @keyframes fade-in-up {
+          0% {
+            opacity: 0.5;
+            transform: translateY(30%);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
 
+        .fade-in-down {
+          animation: fade-in-down 0.3s ease-in-out;
+        }
+
+        .fade-in-up {
+          animation: fade-in-up 0.3s ease-in-out;
+        }
+      `}</style>
+
+      {/* fixed时留白高度 */}
+      {fixedNav && !document?.querySelector('#post-bg') && (
+        <div className='h-16'></div>
+      )}
+
+      {/* 顶部导航菜单栏 */}
+      <nav
+        id='nav'
+        className={`z-20 h-16 top-0 w-full duration-300 transition-all
+            ${fixedNav ? 'fixed' : 'relative bg-transparent'} 
+            ${textWhite ? 'text-white ' : 'text-black dark:text-white'}  
+            ${navBgWhite ? 'bg-white dark:bg-[#18171d] shadow' : 'bg-transparent'}`}>
+        <div className='flex h-full mx-auto justify-between items-center max-w-[86rem] px-6'>
+          {/* 左侧logo */}
+          <Logo {...props} />
+
+          {/* 中间菜单 */}
+          <div
+            id='nav-bar-swipe'
+            className={`hidden lg:flex flex-grow flex-col items-center justify-center h-full relative w-full`}>
             <div
-              onClick={toggleShowSearchInput}
-              className='flex items-center cursor-pointer'>
-              <i className='fas fa-search dark:text-white'></i>
+              className={`absolute transition-all duration-700 ${activeIndex === 0 ? 'opacity-100 mt-0' : '-mt-20 opacity-0 invisible'}`}>
+              <MenuListTop {...props} />
             </div>
-
             <div
-              className={`${showSearch ? 'top-16 visible opacity-100' : 'top-10 invisible opacity-0'} duration-200 transition-all max-w-md absolute  w-80 right-4 p-2 flex flex-col gap-2`}>
-              <input
-                autoFocus
-                id='search'
-                onClick={toggleShowSearchInput}
-                onKeyUp={onKeyUp}
-                className='float-left w-full outline-none h-full p-2 rounded text-black bg-gray-100'
-                aria-label='Submit search'
-                type='search'
-                name='s'
-                autoComplete='off'
-                placeholder='Type then hit enter to search...'
-              />
-              <button
-                onClick={handleSearch}
-                className='w-full bg-[#383838] rounded py-2'>
-                {locale.COMMON.SEARCH} 搜索
-              </button>
+              className={`absolute transition-all duration-700 ${activeIndex === 1 ? 'opacity-100 mb-0' : '-mb-20 opacity-0 invisible'}`}>
+              <h1 className='font-bold text-center text-light-400 dark:text-gray-400'>
+                {siteConfig('AUTHOR') || siteConfig('TITLE')}{' '}
+                {siteConfig('BIO') && <>|</>} {siteConfig('BIO')}
+              </h1>
             </div>
+          </div>
 
-            {/* 移动端按钮 */}
-            <div className='md:hidden'>
-              <div onClick={toggleMenuOpen} className='w-8 cursor-pointer'>
-                {isOpen ? (
-                  <i className='fas fa-times' />
-                ) : (
-                  <i className='fas fa-bars' />
-                )}
+          {/* 右侧固定 */}
+          <div className='flex flex-shrink-0 justify-end items-center w-48'>
+            <RandomPostButton {...props} />
+            <SearchButton {...props} />
+            {!JSON.parse(siteConfig('THEME_SWITCH')) && (
+              <div className='hidden md:block'>
+                <DarkModeButton {...props} />
               </div>
-            </div>
-          </>
-        </div>
-      </header>
+            )}
+            <ReadingProgress />
 
-      <Collapse
-        className='block md:hidden'
-        collapseRef={collapseRef}
-        type='vertical'
-        isOpen={isOpen}>
-        {/* 移动端菜单 */}
-        <menu id='nav-menu-mobile' className='my-auto justify-start'>
-          {links?.map(
-            (link, index) =>
-              link &&
-              link.show && (
-                <MenuItemCollapse
-                  onHeightChange={param =>
-                    collapseRef.current?.updateCollapseHeight(param)
-                  }
-                  key={index}
-                  link={link}
-                />
-              )
-          )}
-        </menu>
-      </Collapse>
+            {/* 移动端菜单按钮 */}
+            <div
+              onClick={toggleMenuOpen}
+              className='flex lg:hidden w-8 justify-center items-center h-8 cursor-pointer'>
+              <i className='fas fa-bars' />
+            </div>
+          </div>
+
+          {/* 右边侧拉抽屉 */}
+          <SlideOver cRef={slideOverRef} {...props} />
+        </div>
+      </nav>
     </>
   )
 }
+
+export default Header
