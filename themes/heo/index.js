@@ -299,6 +299,7 @@ const LayoutSlug = props => {
         {!lock && post && (
           <div className='mx-auto md:w-full md:px-5'>
             {/* 文章主体 */}
+                        <PostHeader {...props}/>
             <article
               id='article-wrapper'
               itemScope
@@ -315,7 +316,6 @@ const LayoutSlug = props => {
 
               {/* 上一篇\下一篇文章 */}
               <PostAdjacent {...props} />
-              <PostHeader {...props}/>
               {/* 分享 */}
               <ShareBar post={post} />
               {post?.type === 'Post' && (
