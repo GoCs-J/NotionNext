@@ -24,18 +24,16 @@ return (
     <div className='max-w-4xl mx-auto flex flex-col gap-6'>
 
       {/* 标题 */}
-      <h1 className='text-3xl md:text-4xl font-bold text-gray-900 dark:text-white'>
-        {siteConfig('POST_TITLE_ICON') && <NotionIcon icon={post.pageIcon} />}
+      <h2 className='text-5xl font-semibold py-10 dark:text-white text-center'>
         {post.title}
-      </h1>
+      </h2>
 
       {/* 信息块 */}
-      <div className='d-flex gap-3 font-semibold text-sm items-center justify-center'>
+      <div className='flex gap-3 font-semibold text-sm items-center justify-center'>
 
         {/* 发布时间 */}
         {post.publishDay && (
           <div className='flex items-center gap-1'>
-            <i className='fa-regular fa-calendar'></i>
             <span>{post.publishDay}</span>
           </div>
         )}
@@ -61,7 +59,7 @@ return (
               <Link
                 key={index}
                 href={`/tag/${encodeURIComponent(tag.name)}`}
-                className={`notion-${tag.color}_background dark:bg-gray-700 hover:bg-blue-500 dark:hover:bg-yellow-600 text-gray-800 dark:text-gray-200 hover:text-white px-2 py-0.5 rounded text-xs`}>
+                className={`notion-${tag.color}_background text-gray-600 hover:shadow-xl dark:border-gray-400 notion-${tag.color}_background dark:bg-gray-800`}>
                 {tag.name}  
               </Link>
             ))}
