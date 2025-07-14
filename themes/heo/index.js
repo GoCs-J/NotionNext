@@ -299,6 +299,7 @@ const LayoutSlug = props => {
 
         {!lock && post && (
           <div className='mx-auto md:w-full md:px-5'>
+                                      <PostHeader {...props} isDarkMode={isDarkMode} />
             {/* 文章主体 */}
             <article
               id='article-wrapper'
@@ -308,7 +309,6 @@ const LayoutSlug = props => {
               <section
                 className='wow fadeInUp p-5 justify-center mx-auto'
                 data-wow-delay='.2s'>
-                            <PostHeader {...props} isDarkMode={isDarkMode} />
                 <AISummary aiSummary={post.aiSummary}/>
                 <WWAds orientation='horizontal' className='w-full' />
                 {post && <NotionPage post={post} />}
