@@ -105,7 +105,6 @@ const LayoutBase = props => {
       <main
         id='wrapper-outer'
         className={`flex-grow w-full ${maxWidth} mx-auto relative md:px-5`}>
-          <PostHeader {...props} isDarkMode={isDarkMode} />
         <div
           id='container-inner'
           className={`${HEO_HERO_BODY_REVERSE ? 'flex-row-reverse' : ''} w-full mx-auto lg:flex justify-center relative z-10`}>
@@ -309,6 +308,7 @@ const LayoutSlug = props => {
               <section
                 className='wow fadeInUp p-5 justify-center mx-auto'
                 data-wow-delay='.2s'>
+                            <PostHeader {...props} isDarkMode={isDarkMode} />
                 <AISummary aiSummary={post.aiSummary}/>
                 <WWAds orientation='horizontal' className='w-full' />
                 {post && <NotionPage post={post} />}
