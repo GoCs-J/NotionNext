@@ -40,14 +40,20 @@ return (
           </div>
         )}
 
-        {/* 最后编辑时间 */}
-        {post.lastEditedDay && (
-          <div className='flex items-center gap-1'>
-            <i className='fa-regular fa-calendar-check'></i>
-            <span>{post.lastEditedDay}</span>
-          </div>
-        )}
-
+        {/* 分类 */}  
+        {post.category && (
+              <>
+                <Link
+                  href={`/category/${post.category}`}
+                  className='mr-4'
+                  passHref
+                  legacyBehavior>
+                  <div className='cursor-pointer font-sm font-bold px-3 py-1 rounded-lg  hover:bg-white text-white bg-blue-500 dark:bg-yellow-500 hover:text-blue-500 duration-200 '>
+                    {post.category}
+                  </div>
+                </Link>
+              </>
+            )}
         {/* 标签 */}
         {post.tagItems && post.tagItems.length > 0 && (
           <div className='flex flex-wrap gap-2 items-center'>
