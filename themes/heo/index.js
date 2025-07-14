@@ -315,7 +315,7 @@ const LayoutSlug = props => {
 
               {/* 上一篇\下一篇文章 */}
               <PostAdjacent {...props} />
-
+              <PostHeader {...props} isDarkMode={isDarkMode} />
               {/* 分享 */}
               <ShareBar post={post} />
               {post?.type === 'Post' && (
