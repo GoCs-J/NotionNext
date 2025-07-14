@@ -43,6 +43,7 @@ import SideRight from './components/SideRight'
 import CONFIG from './config'
 import { Style } from './style'
 import AISummary from '@/components/AISummary'
+import ArticleExpirationNotice from '@/components/ArticleExpirationNotice'
 
 /**
  * 基础布局 采用上中下布局，移动端使用顶部侧边导航栏
@@ -69,6 +70,7 @@ const LayoutBase = props => {
           <Hero {...props} />
         </>
       ) : null}
+      // {fullWidth ? null : <PostHeader {...props} isDarkMode={isDarkMode} />}
     </header>
   )
 
@@ -297,8 +299,6 @@ const LayoutSlug = props => {
 
         {!lock && post && (
           <div className='mx-auto md:w-full md:px-5'>
-            {/* 文章标题 */}
-            <PostHeader {...props} isDarkMode={isDarkMode} />
             {/* 文章主体 */}
             <article
               id='article-wrapper'
@@ -308,7 +308,8 @@ const LayoutSlug = props => {
               <section
                 className='wow fadeInUp p-5 justify-center mx-auto'
                 data-wow-delay='.2s'>
-                <AISummary aiSummary={post.aiSummary}/>
+                <ArticleExpirationNotice post={post} />
+                <AISummary aiSummary={post.aiSummary} />
                 <WWAds orientation='horizontal' className='w-full' />
                 {post && <NotionPage post={post} />}
                 <WWAds orientation='horizontal' className='w-full' />
