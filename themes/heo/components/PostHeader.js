@@ -52,10 +52,10 @@ return (
                 </Link>
               </>
                         )}
-                    {/* 标签 */}
-            {post.tagItems.map((tag, index) => (
-              <TagItemMini key={index} tag={tag} />
-            ))}
+            //         {/* 标签 */}
+            // {post.tagItems.map((tag, index) => (
+            //   <TagItemMini key={index} tag={tag} />
+            // ))}
           </div>
         )}
       </div>
