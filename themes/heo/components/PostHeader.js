@@ -6,6 +6,8 @@ import { siteConfig } from '@/lib/config'
 import { formatDateFmt } from '@/lib/utils/formatDate'
 import Link from 'next/link'
 import WavesArea from './WavesArea'
+import TagItemMini from './TagItemMini'
+
 
 /**
  * 文章页头
@@ -55,14 +57,9 @@ return (
         {/* 标签 */}
         {post.tagItems && post.tagItems.length > 0 && (
           <div className='flex flex-wrap gap-2 items-center'>
-            {post.tagItems.map((tag, index) => (
-              <Link
-                key={index}
-                href={`/tag/${encodeURIComponent(tag.name)}`}
-                className={`notion-${tag.color}_background text-gray-600 hover:shadow-xl dark:border-gray-400 notion-${tag.color}_background dark:bg-gray-800`}>
-                {tag.name}  
-              </Link>
-            ))}
+              {post.tagItems?.map(tag => (
+                <TagItemMini key={tag.name} tag={tag} />
+              ))}
           </div>
         )}
       </div>
