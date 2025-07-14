@@ -294,7 +294,6 @@ const LayoutSlug = props => {
     <>
       <div
         className={`article h-full w-full ${fullWidth ? '' : 'xl:max-w-5xl'} ${hasCode ? 'xl:w-[73.15vw]' : ''}  bg-white dark:bg-[#18171d] dark:border-gray-600 lg:hover:shadow lg:border rounded-2xl lg:px-2 lg:py-4 `}>
-        <PostHeader {...props} isDarkMode={isDarkMode} />
   {/* 文章锁 */}
         {lock && <PostLock validPassword={validPassword} />}
         {!lock && post && (
