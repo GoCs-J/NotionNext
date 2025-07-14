@@ -58,19 +58,12 @@ return (
         {post.tagItems && post.tagItems.length > 0 && (
           <div className='flex flex-wrap gap-2 items-center'>
             {post.tagItems.map((tag, index) => (
-    <Link
-      key={tag}
-      href={selected ? '/' : `/tag/${encodeURIComponent(tag.name)}`}
-      passHref
-      className={`cursor-pointer inline-block rounded hover:bg-gray-500 hover:text-white duration-200
-        mr-2 py-0.5 px-1 text-xs whitespace-nowrap dark:hover:text-white
-         ${selected
-        ? 'text-white dark:text-gray-300 bg-black dark:bg-black dark:hover:bg-gray-900'
-        : `text-gray-600 hover:shadow-xl dark:border-gray-400 notion-${tag.color}_background dark:bg-gray-800`}` }>
-
-      <div className='font-light dark:text-gray-400'>{selected && <i className='mr-1 fas fa-tag'/>} {tag.name + (tag.count ? `(${tag.count})` : '')} </div>
-
-    </Link>
+              <Link
+                key={index}
+                href={`/tag/${encodeURIComponent(tag.name)}`}
+                className='bg-gray-100 dark:bg-gray-700 hover:bg-blue-500 dark:hover:bg-yellow-600 text-gray-800 dark:text-gray-200 hover:text-white px-2 py-0.5 rounded text-xs'>
+                {tag.name}  `notion-${tag.color}_background`
+              </Link>
             ))}
           </div>
         )}
