@@ -59,7 +59,7 @@ return (
       {post.publishDay && (
         <div className='flex gap-3 font-semibold text-sm items-center justify-center'>
           <div className='flex items-center gap-1'>
-            <span>{post.publishDay}</span>
+            <span>{post.date}</span>
           </div>
         </div>
       )}
