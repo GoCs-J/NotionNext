@@ -40,24 +40,22 @@ return (
 
         {/* 分类 */}  
         {post.category && (
-              <>
-                <Link
-                  href={`/category/${post.category}`}
-                  className='mr-4'
-                  passHref
-                  legacyBehavior>
-                  <div className='cursor-pointer font-sm font-bold px-3 py-1 rounded-lg dark:text-yellow-500 text-blue-500 duration-200 '>
-                    {post.category}
-                  </div>
-                </Link>
-              </>
-                        )}
+          <>
+            <Link
+              href={`/category/${post.category}`}
+              className='mr-4'
+              passHref
+              legacyBehavior>
+              <div className='cursor-pointer font-sm font-bold px-3 py-1 rounded-lg dark:text-yellow-500 text-blue-500 duration-200 '>
+                {post.category}
+              </div>
+            </Link>
+          </>
+        )}
             //         {/* 标签 */}
             // {post.tagItems.map((tag, index) => (
             //   <TagItemMini key={index} tag={tag} />
             // ))}
-          </div>
-        )}
       </div>
     </div>
   </div>
