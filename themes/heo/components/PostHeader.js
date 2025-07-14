@@ -30,7 +30,7 @@ return (
       </h1>
 
       {/* 信息块 */}
-      <div className='flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-300'>
+      <div className='d-flex gap-3 font-semibold text-sm items-center justify-center'>
 
         {/* 发布时间 */}
         {post.publishDay && (
