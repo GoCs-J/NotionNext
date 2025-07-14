@@ -20,7 +20,7 @@ const Hero = props => {
   return (
     <div
       id='hero-wrapper'
-      className='recent-top-post-group w-full overflow-hidden select-none px-5 mb-4 max-w-[86rem]'>
+      className='recent-top-post-group w-full overflow-hidden select-none px-5 mb-4 max-w-[86rem] mx-auto'>
       <div
         id='hero'
         style={{ zIndex: 1 }}
