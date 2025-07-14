@@ -70,7 +70,7 @@ const LayoutBase = props => {
           <Hero {...props} />
         </>
       ) : null}
-      {fullWidth ? null : <PostHeader {...props} isDarkMode={isDarkMode} />}
+      {fullWidth ? null : <></>}
     </header>
   )
 
