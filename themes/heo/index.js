@@ -299,7 +299,6 @@ const LayoutSlug = props => {
 
         {!lock && post && (
           <div className='mx-auto md:w-full md:px-5'>
-            // 我希望在这里添加       {fullWidth ? null : <PostHeader {...props} isDarkMode={isDarkMode} />}
             {/* 文章主体 */}
             <article
               id='article-wrapper'
