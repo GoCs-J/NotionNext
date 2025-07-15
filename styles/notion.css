@@ -1192,11 +1192,6 @@ code[class*='language-'] {
   padding-left: 1.5em;
 }
 
-.notion-to-do-checked {
-  text-decoration: line-through;
-  opacity: 0.375;
-}
-
 .notion-to-do-body {
   white-space: pre-wrap;
   word-break: break-word;
