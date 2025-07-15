@@ -32,6 +32,14 @@ return (
 
       {/* 信息块 */}
       <div className='flex gap-3 font-semibold text-sm items-center justify-center'>
+        {/* 发布时间 */}
+        {post.publishDay && (
+          <div className='flex gap-3 font-semibold text-sm items-center justify-center dark:text-yellow-500'>
+            <div className='flex items-center gap-1'>
+              <span>{post.date}</span>
+            </div>
+          </div>
+        )}
         {/* 分类 */}  
         {post.category && (
               <>
@@ -40,7 +48,7 @@ return (
                   className='mr-4'
                   passHref
                   legacyBehavior>
-                  <div className='cursor-pointer font-sm font-bold px-3 py-1 rounded-lg dark:text-yellow-500 text-blue-500 duration-200 '>
+                  <div className='cursor-pointer font-sm font-bold px-3 py-1 rounded-lg dark:text-yellow-500 duration-200 '>
                     {post.category}
                   </div>
                 </Link>
@@ -55,14 +63,6 @@ return (
           </div>
         )}
       </div>
-      {/* 发布时间 */}
-      {post.publishDay && (
-        <div className='flex gap-3 font-semibold text-sm items-center justify-center'>
-          <div className='flex items-center gap-1'>
-            <span>{post.date}</span>
-          </div>
-        </div>
-      )}
     </div>
   </div>
 )
