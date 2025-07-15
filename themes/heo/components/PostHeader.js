@@ -32,31 +32,28 @@ return (
 
       {/* 信息块 */}
       <div className='flex gap-3 font-semibold text-sm items-center justify-center'>
-        {/* 发布时间 */}
-        <Link href={`/category/${post.category}`> 
-        
-          {post.publishDay && (
-            <div className='flex gap-3 font-semibold text-sm items-center justify-center dark:text-yellow-500'>
-              <div className='flex items-center gap-1'>
-                <span>{post.date}</span>
-              </div>
+        {/* 发布时间 */}        
+        {post.publishDay && (
+          <div className='flex gap-3 font-semibold text-sm items-center justify-center dark:text-yellow-500'>
+            <div className='flex items-center gap-1'>
+              <span>{post.date}</span>
             </div>
-          )}
-          {/* 分类 */}  
-          {post.category && (
-                <>
-                  <Link
-                    href={`/category/${post.category}`}
-                    className='mr-4'
-                    passHref
-                    legacyBehavior>
-                    <div className='cursor-pointer font-sm font-bold pr-3 py-1 rounded-lg dark:text-yellow-500 duration-200 '>
-                      {post.category}
-                    </div>
-                  </Link>
-                </>
-              )}
-        </Link>
+          </div>
+        )}
+        {/* 分类 */}  
+        {post.category && (
+              <>
+                <Link
+                  href={`/category/${post.category}`}
+                  className='mr-4'
+                  passHref
+                  legacyBehavior>
+                  <div className='cursor-pointer font-sm font-bold pr-3 py-1 rounded-lg dark:text-yellow-500 duration-200 '>
+                    {post.category}
+                  </div>
+                </Link>
+              </>
+            )}
         {/* 标签 */}
         {post.tagItems && post.tagItems.length > 0 && (
           <div className='flex flex-wrap gap-2 items-center'>
