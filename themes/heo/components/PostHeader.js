@@ -29,17 +29,6 @@ return (
       <h2 className='text-5xl font-semibold py-10 dark:text-white text-center'>
         {post.title}
       </h2>
-
-      {/* 信息块 */}
-      <div className='flex gap-3 font-semibold text-sm items-center justify-center'>
-        {/* 发布时间 */}
-        {post.publishDay && (
-          <div className='flex gap-3 font-semibold text-sm items-center justify-center dark:text-yellow-500'>
-            <div className='flex items-center gap-1'>
-              <span>{post.date}</span>
-            </div>
-          </div>
-        )}
         {/* 分类 */}  
         {post.category && (
               <>
@@ -49,7 +38,7 @@ return (
                   passHref
                   legacyBehavior>
                   <div className='cursor-pointer font-sm font-bold px-3 py-1 rounded-lg dark:text-yellow-500 duration-200 '>
-                    {post.category}
+                    {post.date} {post.category}
                   </div>
                 </Link>
               </>
