@@ -2001,6 +2001,13 @@ svg + .notion-page-title-text {
   font-size: 1em;
   /* color: var(--notion-gray); */
 } */
+.notion-quote {
+  padding: 0.2em 0.75em;
+  line-height: 1.5;
+  font-style: italic;
+  font-size: 1.2em;
+  border-left: 4px solid #67bdfc;
+}
 
 /* .notion-asset-wrapper-pdf > div {
   width: unset !important;
