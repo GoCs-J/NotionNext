@@ -33,7 +33,7 @@ return (
       {/* 信息块 */}
       <div className='flex gap-3 font-semibold text-sm items-center justify-center'>
         {/* 发布时间 */}
-        <link href={`/category/${post.category}`> 
+        <Link href={`/category/${post.category}`> 
         
           {post.publishDay && (
             <div className='flex gap-3 font-semibold text-sm items-center justify-center dark:text-yellow-500'>
@@ -56,7 +56,7 @@ return (
                   </Link>
                 </>
               )}
-        </div>
+        </Link>
         {/* 标签 */}
         {post.tagItems && post.tagItems.length > 0 && (
           <div className='flex flex-wrap gap-2 items-center'>
