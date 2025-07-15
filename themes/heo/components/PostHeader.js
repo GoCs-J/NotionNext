@@ -22,7 +22,7 @@ export default function PostHeader({ post, siteInfo, isDarkMode }) {
   const headerImage = post?.pageCover ? post.pageCover : siteInfo?.pageCover
   const ANALYTICS_BUSUANZI_ENABLE = siteConfig('ANALYTICS_BUSUANZI_ENABLE')
 return (
-  <div className='w-full bg-white dark:bg-[#1f1f1f] py-12 px-6 md:px-12 border-b border-gray-200 dark:border-gray-700'>
+  <div className='w-full bg-white dark:bg-[#1f1f1f] py-6 px-6 md:px-12 border-b border-gray-200 dark:border-gray-700'>
     <div className='max-w-4xl mx-auto flex flex-col gap-2'>
 
       {/* 标题 */}
