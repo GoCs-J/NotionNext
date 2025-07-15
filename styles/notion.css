@@ -1985,7 +1985,7 @@ svg + .notion-page-title-text {
   display: block !important;
 }
 
-/* https://github.com/kchen0x */
+/* /* https://github.com/kchen0x */
 .notion-quote {
   display: block;
   border-radius: 5px;
@@ -2000,7 +2000,7 @@ svg + .notion-page-title-text {
   margin: 6px 0;
   font-size: 1em;
   /* color: var(--notion-gray); */
-}
+} */
 
 /* .notion-asset-wrapper-pdf > div {
   width: unset !important;
