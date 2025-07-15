@@ -48,7 +48,7 @@ return (
                   className='mr-4'
                   passHref
                   legacyBehavior>
-                  <div className='cursor-pointer font-sm font-bold px-3 py-1 rounded-lg dark:text-yellow-500 duration-200 '>
+                  <div className='cursor-pointer font-sm font-bold pr-3 py-1 rounded-lg dark:text-yellow-500 duration-200 '>
                     {post.category}
                   </div>
                 </Link>
