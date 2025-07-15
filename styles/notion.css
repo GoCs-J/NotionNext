@@ -540,7 +540,7 @@ summary > .notion-h {
   font-size: 14px;
 }
 
-/* .notion-quote {
+.notion-quote {
   display: block;
   width: 100%;
   white-space: pre-wrap;
@@ -549,14 +549,6 @@ summary > .notion-h {
   padding: 0.2em 0.9em;
   margin: 6px 0;
   font-size: 1.2em;
-} */
-
-.notion-quote {
-  padding: 0.2em 0.75em;
-  line-height: 1.5;
-  font-style: italic;
-  font-size: 1.2em;
-  border-left: 4px solid #67bdfc;
 }
 
 .notion-hr {
@@ -1985,28 +1977,17 @@ svg + .notion-page-title-text {
   display: block !important;
 }
 
-/* /* https://github.com/kchen0x */
+/* https://github.com/kchen0x */
 .notion-quote {
   display: block;
-  border-radius: 5px;
-  border-color: var(--notion-blue);
-  border-left-color: var(--notion-blue);
-  background-color: var(--notion-blue_background_co);
   width: 100%;
   white-space: pre-wrap;
   word-break: break-word;
-  border-left: 10px solid;
+  border-left: 4px solid #67bdfc;
   padding: 0.2em 0.9em;
   margin: 6px 0;
   font-size: 1em;
   /* color: var(--notion-gray); */
-} */
-.notion-quote {
-  padding: 0.2em 0.75em;
-  line-height: 1.5;
-  font-style: italic;
-  font-size: 1.2em;
-  border-left: 4px solid #67bdfc;
 }
 
 /* .notion-asset-wrapper-pdf > div {
