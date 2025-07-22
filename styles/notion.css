@@ -256,7 +256,7 @@
 }
 .notion-teal,
 .notion-teal_co {
-  color: var(--notion-teal);
+  color: var(--notion-teal) !important;
 }
 .notion-yellow,
 .notion-yellow_co {
