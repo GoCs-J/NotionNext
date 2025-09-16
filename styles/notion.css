@@ -1984,8 +1984,8 @@ svg + .notion-page-title-text {
   padding: 0.2em 0.9em;
   margin: 6px 0;
   font-size: 1em;
-  font-style: italic;
-  /* color: var(--notion-gray); */
+  /*   font-style: italic;
+  /* color: var(--notion-gray); */ */
 }
 
 /* .notion-asset-wrapper-pdf > div {
